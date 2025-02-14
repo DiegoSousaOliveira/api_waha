@@ -1,0 +1,55 @@
+import requests
+
+class Waha:
+    
+    def __init__(self) -> None:
+        self.__url = 'http://waha:3000'
+
+    def send_message(self, chat_id, message):
+        url = f'{self.__url}/api/sendText'
+
+        headers = {
+            'Content-Type': 'application/json',
+        }
+        payload = {
+            'session':   'default',
+            'chatId':    chat_id,
+            'text':      message
+        }
+        requests.post(
+            url         =  url,
+            json        =  payload,
+            headers     =  headers
+        )
+
+    def start_typing(self, chat_id):
+        url = f'{self.__url}/api/startTyping'
+
+        headers = {
+            'Content-Type': 'application/json',
+        }
+        payload = {
+            'session': 'default',
+            'chatId':   chat_id
+        }
+        requests.post(
+            url         =  url,
+            json        =  payload,
+            headers     =  headers
+        )
+    
+    def stop_typing(self, chat_id):
+        url = f'{self.__url}/api/stopTyping'
+
+        headers = {
+            'Content-Type': 'application/json',
+        }
+        payload = {
+            'session': 'default',
+            'chatId': chat_id,
+        }
+        requests.post(
+            url         =  url,
+            json        =  payload,
+            headers     =  headers
+        )
