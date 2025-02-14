@@ -1,0 +1,19 @@
+services:
+
+  waha:
+    image: devlikeapro/waha:latest
+    container_name: wpp_bot_waha_api_respbarry_pi_pico_w
+    restart: always
+    env_file:
+      - .env
+
+    ports:
+      - '3000:3000'
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: wpp_bot_api_respbarry_pi_pico_w
+    ports:
+      - '5000:5000'
