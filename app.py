@@ -11,7 +11,7 @@ app = Flask(__name__)
 status_table_option = True
 dict_chat: dict = {}
 
-SERVER_IP = "192.168.0.103"
+SERVER_IP = "192.168.0.105" # Configure o IP do servidor"
 PORT = 80
 
 def time_message():
